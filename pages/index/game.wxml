@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view>操作次数：{{operateCount}}</view>  
+<canvas class="gameCanavs" type="2d">
+<view class="items">
+    <view class="vertical1">
+            <view wx:for="{{stickListA}}" wx:key="index" style="text-align: center;">
+                <view class="stick{{item.id}}" style="position: absolute; text-align: center;  width: {{item.width}}px; height:{{item.height}}px;background: rgb({{item.width-100}}, 180, {{item.width-100}});display: block;bottom: {{movingId == item.id ? movingBottomPos: item.bottomPos}}px; left: {{movingId == item.id ? strMovingPosX : leftPosA}}; transform:{{movingId == item.id ? untranslate : translate}};z-index:9999;" bindtouchmove="touchMove" bindtouchstart="touchStart" bindtouchend="touchEnd" id="item{{index}}" data-id="{{item.id}}" data-index="{{index}}">
+                    <view>{{item.stickName}}</view>
+                </view>
+            </view>
+    </view>
+    <view class="vertical2">
+        <view wx:for="{{stickListB}}" wx:key="index" style="text-align: center;">
+                <view class="stick{{item.id}}" style="position: absolute; text-align: center;  width: {{item.width}}px; height:{{item.height}}px;background: rgb({{item.width-100}}, 180, {{item.width-100}});display: block;bottom: {{movingId == item.id ? movingBottomPos : item.bottomPos}}px; left: {{movingId == item.id ? strMovingPosX : leftPosB}}; transform:{{movingId == item.id ? untranslate : translate}};z-index:9999;" bindtouchmove="touchMove" bindtouchstart="touchStart" bindtouchend="touchEnd" id="item{{index}}" data-id="{{item.id}}" data-index="{{index}}">
+                    <view>{{item.stickName}}</view>
+                </view>
+            </view>
+    </view>
+    <view class="vertical3">
+        <view wx:for="{{stickListC}}" wx:key="index" style="text-align: center;">
+                <view class="stick{{item.id}}" style="position: absolute; text-align: center;  width: {{item.width}}px; height:{{item.height}}px;background: rgb({{item.width-100}}, 180, {{item.width-100}});display: block;bottom: {{movingId == item.id ? movingBottomPos : item.bottomPos}}px; left: {{movingId == item.id ? strMovingPosX : leftPosC}}; transform:{{movingId == item.id ? untranslate : translate}};z-index:9999;" bindtouchmove="touchMove" bindtouchstart="touchStart" bindtouchend="touchEnd" id="item{{index}}" data-id="{{item.id}}" data-index="{{index}}">
+                    <view>{{item.stickName}}</view>
+                </view>
+            </view>
+    </view>
+</view>
+</canvas>
+<canvas class="horizontal" type="2d"></canvas>
+
+<button  type="primary" style="top: 100px;" bindtap = 'gotoMainPage'>返回</button>
