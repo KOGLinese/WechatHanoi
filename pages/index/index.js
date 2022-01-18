@@ -10,7 +10,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
-    array:[1,2,3,4,5]
+    array: [1, 2, 3, 4, 5]
   },
   // 事件处理函数
   bindViewTap() {
@@ -51,7 +51,7 @@ Page({
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
     var value = e.detail.value;
     wx.redirectTo({
-      url: './game?count='+value.input
+      url: './game?count=' + value.input
     })
   },
 })

@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        operateCount:0, // 操作次数
+        operateCount: 0, // 操作次数
         count: 0, // 木条数
         maxStickLen: 85, // 木头最大长度 15差值递减
         stickHeight: 25,// 木头高度
@@ -72,7 +72,7 @@ Page({
             tempStickIdInList.push(1);// 一开始 都在 1 ： lsitA
         }
         this.setData({
-            count:options.count,
+            count: options.count,
             stickListA: tempStickList,
             stickIdinList: tempStickIdInList
         })
@@ -160,17 +160,16 @@ Page({
             tempStickList = this.data.stickListC;
         }
 
-        if(tempStickList[tempStickList.length-1].id != id)
-        {
+        if (tempStickList[tempStickList.length - 1].id != id) {
             wx.showToast({
-                title: '操作失败',  
-                icon: 'error',  
-                duration: 600   
+                title: '操作失败',
+                icon: 'error',
+                duration: 600
             })
             console.log("can not move, because it is not top stick");
             return
         }
-        tempDargOriginBottomPos = tempStickList[tempStickList.length-1].bottomPos; // 获取原始bottom坐标值
+        tempDargOriginBottomPos = tempStickList[tempStickList.length - 1].bottomPos; // 获取原始bottom坐标值
         // 准备好开始触摸的信息
         this.setData({
             moveFromList: this.data.stickIdinList[id], // 当前触摸的stick来自哪个List
@@ -254,28 +253,27 @@ Page({
                 stickIdinList: tempStickIdInList
             })
         }
-        var opCount = this.data.operateCount+1;
+        var opCount = this.data.operateCount + 1;
         this.setData({
             operateCount: opCount
         })
     },
 
-    checkFinish:function(){
-        if(this.data.stickListC.length == this.data.count)
-        {
-            var strResult = "操作次数为:"+this.data.operateCount;
+    checkFinish: function () {
+        if (this.data.stickListC.length == this.data.count) {
+            var strResult = "操作次数为:" + this.data.operateCount;
             wx.showModal({
                 title: '恭喜过关',
                 content: strResult,
-                success (res) {
-                  if (res.confirm) {
-                    console.log('用户点击确定')
-                    wx.navigateTo({ url: './index', })
-                  } else if (res.cancel) {
-                    console.log('用户点击取消')
-                  }
+                success(res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定')
+                        wx.navigateTo({ url: './index', })
+                    } else if (res.cancel) {
+                        console.log('用户点击取消')
+                    }
                 }
-              })
+            })
         }
     },
 
@@ -325,7 +323,7 @@ Page({
         });
         this.checkFinish()
     },
-    gotoMainPage: function (e){
+    gotoMainPage: function (e) {
         console.log("back to index");
         wx.navigateTo({ url: './index', })
     },
