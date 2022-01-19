@@ -43,9 +43,7 @@ Page({
         stickIdinList: [],
 
         // 屏幕宽度，用于计算 拖动到 哪个部分
-        screenWidth: 0,
-        // px 转换为 rpx
-        PxToRpx: 0
+        screenWidth: 0
     },
 
     /**
@@ -60,7 +58,6 @@ Page({
         query.exec(function (res) {
             _this.setData({
                 screenWidth: res[0].width, // 得到屏幕宽度
-                PxToRpx: 750 / res[0].width // todo 转换值 待考虑
             })
         })
 

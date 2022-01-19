@@ -48,7 +48,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.19.4",
-    "appid": "wx5a71738d476a3749",
+    "appid": "appid", // 设置自己的appid
     "projectname": "LLHanoi",
     "debugOptions": {
         "hidedInDevtools": []
